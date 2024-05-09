@@ -21,6 +21,7 @@
 		83182F172BECD8B400F81A7C /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83182F162BECD8B400F81A7C /* RootTabBarController.swift */; };
 		83182F192BECE14A00F81A7C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83182F182BECE14A00F81A7C /* MapViewController.swift */; };
 		83182F1C2BECE40600F81A7C /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83182F1B2BECE40600F81A7C /* AppAppearance.swift */; };
+		83182F212BECE92600F81A7C /* AddJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83182F202BECE92600F81A7C /* AddJournalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		83182F162BECD8B400F81A7C /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		83182F182BECE14A00F81A7C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		83182F1B2BECE40600F81A7C /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
+		83182F202BECE92600F81A7C /* AddJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				83182F0F2BECCE3A00F81A7C /* JournalListViewController.swift */,
+				83182F202BECE92600F81A7C /* AddJournalViewController.swift */,
 			);
 			path = JournalFlow;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 			files = (
 				83182F102BECCE3A00F81A7C /* JournalListViewController.swift in Sources */,
 				83182F172BECD8B400F81A7C /* RootTabBarController.swift in Sources */,
+				83182F212BECE92600F81A7C /* AddJournalViewController.swift in Sources */,
 				83182EE32BECCDD700F81A7C /* ViewController.swift in Sources */,
 				83182F132BECCF0900F81A7C /* JournalTableCell.swift in Sources */,
 				83182EDF2BECCDD700F81A7C /* AppDelegate.swift in Sources */,
