@@ -24,9 +24,12 @@ final class JournalListViewController: UIViewController {
         view.addSubview(tableView)
         
         configureUI()
+        configureNavigationItems()
     }
     
     private func configureUI() {
+        view.backgroundColor = .white
+        
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         let global = view.safeAreaLayoutGuide
@@ -37,6 +40,19 @@ final class JournalListViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: global.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: global.bottomAnchor)
         ])
+    }
+    
+    private func configureNavigationItems() {
+        navigationItem.title = "Journal"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(addJournal)
+        )
+    }
+    
+    @objc private func addJournal() {
+        
     }
 }
 

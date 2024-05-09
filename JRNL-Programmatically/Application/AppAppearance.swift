@@ -10,5 +10,6 @@ import UIKit
 final class AppAppearance {
     static func setupAppearance() {
         UITabBar.appearance().backgroundColor = .white
+        UINavigationBar.appearance().backgroundColor = .white
     }
 }
