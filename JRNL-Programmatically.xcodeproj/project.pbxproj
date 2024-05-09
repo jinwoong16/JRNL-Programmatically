@@ -20,6 +20,7 @@
 		83182F132BECCF0900F81A7C /* JournalTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83182F122BECCF0900F81A7C /* JournalTableCell.swift */; };
 		83182F172BECD8B400F81A7C /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83182F162BECD8B400F81A7C /* RootTabBarController.swift */; };
 		83182F192BECE14A00F81A7C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83182F182BECE14A00F81A7C /* MapViewController.swift */; };
+		83182F1C2BECE40600F81A7C /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83182F1B2BECE40600F81A7C /* AppAppearance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		83182F122BECCF0900F81A7C /* JournalTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableCell.swift; sourceTree = "<group>"; };
 		83182F162BECD8B400F81A7C /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		83182F182BECE14A00F81A7C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		83182F1B2BECE40600F81A7C /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		83182EDD2BECCDD700F81A7C /* JRNL-Programmatically */ = {
 			isa = PBXGroup;
 			children = (
+				83182F1A2BECE3F600F81A7C /* Application */,
 				83182F0E2BECCDF800F81A7C /* View */,
 				83182EDE2BECCDD700F81A7C /* AppDelegate.swift */,
 				83182EE02BECCDD700F81A7C /* SceneDelegate.swift */,
@@ -153,6 +156,14 @@
 				83182F122BECCF0900F81A7C /* JournalTableCell.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		83182F1A2BECE3F600F81A7C /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				83182F1B2BECE40600F81A7C /* AppAppearance.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,6 +304,7 @@
 				83182EDF2BECCDD700F81A7C /* AppDelegate.swift in Sources */,
 				83182EE12BECCDD700F81A7C /* SceneDelegate.swift in Sources */,
 				83182F192BECE14A00F81A7C /* MapViewController.swift in Sources */,
+				83182F1C2BECE40600F81A7C /* AppAppearance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
