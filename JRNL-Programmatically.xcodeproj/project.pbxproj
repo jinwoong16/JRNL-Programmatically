@@ -18,6 +18,8 @@
 		83182F022BECCDD900F81A7C /* JRNL_ProgrammaticallyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83182F012BECCDD900F81A7C /* JRNL_ProgrammaticallyUITestsLaunchTests.swift */; };
 		83182F102BECCE3A00F81A7C /* JournalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83182F0F2BECCE3A00F81A7C /* JournalListViewController.swift */; };
 		83182F132BECCF0900F81A7C /* JournalTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83182F122BECCF0900F81A7C /* JournalTableCell.swift */; };
+		83182F172BECD8B400F81A7C /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83182F162BECD8B400F81A7C /* RootTabBarController.swift */; };
+		83182F192BECE14A00F81A7C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83182F182BECE14A00F81A7C /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		83182F012BECCDD900F81A7C /* JRNL_ProgrammaticallyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JRNL_ProgrammaticallyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		83182F0F2BECCE3A00F81A7C /* JournalListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalListViewController.swift; sourceTree = "<group>"; };
 		83182F122BECCF0900F81A7C /* JournalTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableCell.swift; sourceTree = "<group>"; };
+		83182F162BECD8B400F81A7C /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
+		83182F182BECE14A00F81A7C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,8 @@
 			children = (
 				83182F112BECCEEC00F81A7C /* Component */,
 				83182F0F2BECCE3A00F81A7C /* JournalListViewController.swift */,
+				83182F162BECD8B400F81A7C /* RootTabBarController.swift */,
+				83182F182BECE14A00F81A7C /* MapViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -281,10 +287,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				83182F102BECCE3A00F81A7C /* JournalListViewController.swift in Sources */,
+				83182F172BECD8B400F81A7C /* RootTabBarController.swift in Sources */,
 				83182EE32BECCDD700F81A7C /* ViewController.swift in Sources */,
 				83182F132BECCF0900F81A7C /* JournalTableCell.swift in Sources */,
 				83182EDF2BECCDD700F81A7C /* AppDelegate.swift in Sources */,
 				83182EE12BECCDD700F81A7C /* SceneDelegate.swift in Sources */,
+				83182F192BECE14A00F81A7C /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
