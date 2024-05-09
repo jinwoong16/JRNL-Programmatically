@@ -16,6 +16,27 @@ final class JournalListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(JournalTableCell.self, forCellReuseIdentifier: "journalCell")
+        
+        view.addSubview(tableView)
+        
+        configureUI()
+    }
+    
+    private func configureUI() {
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let global = view.safeAreaLayoutGuide
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: global.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: global.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: global.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: global.bottomAnchor)
+        ])
     }
 }
 
@@ -26,5 +47,11 @@ extension JournalListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.dequeueReusableCell(withIdentifier: "journalCell", for: indexPath)
+    }
+}
+
+extension JournalListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        90
     }
 }
