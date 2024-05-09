@@ -142,10 +142,10 @@
 		83182F0E2BECCDF800F81A7C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				83182F1F2BECE5E600F81A7C /* MapFlow */,
+				83182F1E2BECE5DC00F81A7C /* JournalFlow */,
+				83182F1D2BECE5D400F81A7C /* Root */,
 				83182F112BECCEEC00F81A7C /* Component */,
-				83182F0F2BECCE3A00F81A7C /* JournalListViewController.swift */,
-				83182F162BECD8B400F81A7C /* RootTabBarController.swift */,
-				83182F182BECE14A00F81A7C /* MapViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -164,6 +164,30 @@
 				83182F1B2BECE40600F81A7C /* AppAppearance.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		83182F1D2BECE5D400F81A7C /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				83182F162BECD8B400F81A7C /* RootTabBarController.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		83182F1E2BECE5DC00F81A7C /* JournalFlow */ = {
+			isa = PBXGroup;
+			children = (
+				83182F0F2BECCE3A00F81A7C /* JournalListViewController.swift */,
+			);
+			path = JournalFlow;
+			sourceTree = "<group>";
+		};
+		83182F1F2BECE5E600F81A7C /* MapFlow */ = {
+			isa = PBXGroup;
+			children = (
+				83182F182BECE14A00F81A7C /* MapViewController.swift */,
+			);
+			path = MapFlow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
