@@ -7,9 +7,7 @@
 
 import UIKit
 
-protocol CommonField<CellType> {
-    associatedtype CellType: BaseTableViewCell
-    
+protocol CommonField {
     var cellContentType: CellContentType { get }
     var height: CGFloat? { get }
     
