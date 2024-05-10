@@ -8,6 +8,8 @@
 import UIKit
 
 class BaseTableViewCell: UITableViewCell {
+    class var identifier: String { "BaseTableViewCell" }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -19,4 +21,6 @@ class BaseTableViewCell: UITableViewCell {
     }
     
     func configureUI() { }
+    
+    func setup(with contentType: CellContentType) { }
 }
