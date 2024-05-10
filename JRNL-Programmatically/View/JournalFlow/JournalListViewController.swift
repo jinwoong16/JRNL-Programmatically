@@ -67,17 +67,30 @@ final class JournalListViewController: UIViewController {
     @objc private func addJournal() {
         let viewController = AddJournalViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
+        viewController.delegate = self
         present(navigationController, animated: true)
+    }
+}
+
+extension JournalListViewController: JournalSendable {
+    func sendJournal(_ journal: Journal) {
+        viewModel.appendJournal(journal)
+        tableView.reloadData()
     }
 }
 
 extension JournalListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        viewModel.journals.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        tableView.dequeueReusableCell(withIdentifier: "journalCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "journalCell", for: indexPath) as? JournalTableCell else {
+            return UITableViewCell()
+        }
+        cell.setup(with: viewModel.journals[indexPath.row])
+        
+        return cell
     }
 }
 
