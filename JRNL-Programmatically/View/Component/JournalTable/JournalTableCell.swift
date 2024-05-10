@@ -8,7 +8,7 @@
 import UIKit
 
 final class JournalTableCell: BaseTableViewCell {
-    static let identifier = "JournalTableCell"
+    override class var identifier: String { "JournalTableCell" }
     
     // MARK: - Components
     private lazy var titleLabel: UILabel = {
@@ -28,7 +28,8 @@ final class JournalTableCell: BaseTableViewCell {
     
     private lazy var thumbnailView: UIImageView = {
         let thumbnailView = UIImageView()
-        thumbnailView.image = UIImage(systemName: "face.smiling")
+        thumbnailView.image = UIImage(systemName: "face.smiling")?.withRenderingMode(.automatic)
+        thumbnailView.contentMode = .scaleAspectFit
         
         return thumbnailView
     }()
@@ -43,6 +44,7 @@ final class JournalTableCell: BaseTableViewCell {
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         
         let global = safeAreaLayoutGuide
+        let marginGuide = layoutMarginsGuide
         
         NSLayoutConstraint.activate([
             thumbnailView.topAnchor.constraint(equalTo: global.topAnchor),
@@ -50,13 +52,13 @@ final class JournalTableCell: BaseTableViewCell {
             thumbnailView.bottomAnchor.constraint(equalTo: global.bottomAnchor),
             thumbnailView.widthAnchor.constraint(equalToConstant: 90),
             
-            titleLabel.topAnchor.constraint(equalTo: global.topAnchor),
+            titleLabel.topAnchor.constraint(equalTo: marginGuide.topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: thumbnailView.trailingAnchor, constant: 8),
-            titleLabel.trailingAnchor.constraint(equalTo: global.trailingAnchor, constant: 8),
+            titleLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor, constant: 8),
             
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             descriptionLabel.leadingAnchor.constraint(equalTo: thumbnailView.trailingAnchor, constant: 8),
-            descriptionLabel.trailingAnchor.constraint(equalTo: global.trailingAnchor, constant: 8)
+            descriptionLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor, constant: 8)
         ])
     }
     
