@@ -113,8 +113,6 @@
 			children = (
 				83182F1A2BECE3F600F81A7C /* Application */,
 				83182F0E2BECCDF800F81A7C /* View */,
-				83182EDE2BECCDD700F81A7C /* AppDelegate.swift */,
-				83182EE02BECCDD700F81A7C /* SceneDelegate.swift */,
 				83182EE22BECCDD700F81A7C /* ViewController.swift */,
 				83182EE42BECCDD700F81A7C /* Main.storyboard */,
 				83182EE72BECCDD900F81A7C /* Assets.xcassets */,
@@ -163,6 +161,8 @@
 		83182F1A2BECE3F600F81A7C /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				83182EE02BECCDD700F81A7C /* SceneDelegate.swift */,
+				83182EDE2BECCDD700F81A7C /* AppDelegate.swift */,
 				83182F1B2BECE40600F81A7C /* AppAppearance.swift */,
 			);
 			path = Application;
