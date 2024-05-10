@@ -69,4 +69,10 @@ final class JournalTableCell: UITableViewCell {
             descriptionLabel.trailingAnchor.constraint(equalTo: global.trailingAnchor, constant: 8)
         ])
     }
+    
+    func setup(with journal: Journal) {
+        titleLabel.text = journal.journalTitle
+        descriptionLabel.text = journal.journalDescription
+        thumbnailView.image = UIImage(systemName: journal.photoUrl ?? "")
+    }
 }
