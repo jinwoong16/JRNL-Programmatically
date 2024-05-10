@@ -30,6 +30,7 @@
 		83F4A59A2BEE417F00CC3C4B /* JournalDetailTableTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4A5992BEE417F00CC3C4B /* JournalDetailTableTextCell.swift */; };
 		83F4A59C2BEE41F200CC3C4B /* JournalDetailTableImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4A59B2BEE41F200CC3C4B /* JournalDetailTableImageCell.swift */; };
 		83F4A59F2BEE47C200CC3C4B /* CommonField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4A59E2BEE47C200CC3C4B /* CommonField.swift */; };
+		83F4A5A42BEE489200CC3C4B /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4A5A32BEE489200CC3C4B /* BaseTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		83F4A5992BEE417F00CC3C4B /* JournalDetailTableTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalDetailTableTextCell.swift; sourceTree = "<group>"; };
 		83F4A59B2BEE41F200CC3C4B /* JournalDetailTableImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalDetailTableImageCell.swift; sourceTree = "<group>"; };
 		83F4A59E2BEE47C200CC3C4B /* CommonField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonField.swift; sourceTree = "<group>"; };
+		83F4A5A32BEE489200CC3C4B /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,8 +174,9 @@
 		83182F112BECCEEC00F81A7C /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				83F4A5A62BEE48C400CC3C4B /* JournalTable */,
+				83F4A5A52BEE48B700CC3C4B /* Common */,
 				83F4A59D2BEE47B900CC3C4B /* Field */,
-				83182F122BECCF0900F81A7C /* JournalTableCell.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -279,6 +282,22 @@
 				83F4A5992BEE417F00CC3C4B /* JournalDetailTableTextCell.swift */,
 			);
 			path = TextField;
+			sourceTree = "<group>";
+		};
+		83F4A5A52BEE48B700CC3C4B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				83F4A5A32BEE489200CC3C4B /* BaseTableViewCell.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		83F4A5A62BEE48C400CC3C4B /* JournalTable */ = {
+			isa = PBXGroup;
+			children = (
+				83182F122BECCF0900F81A7C /* JournalTableCell.swift */,
+			);
+			path = JournalTable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -416,6 +435,7 @@
 				83F4A58A2BEE237300CC3C4B /* Journal.swift in Sources */,
 				83182F172BECD8B400F81A7C /* RootTabBarController.swift in Sources */,
 				83F4A59F2BEE47C200CC3C4B /* CommonField.swift in Sources */,
+				83F4A5A42BEE489200CC3C4B /* BaseTableViewCell.swift in Sources */,
 				83182F212BECE92600F81A7C /* AddJournalViewController.swift in Sources */,
 				83182EE32BECCDD700F81A7C /* ViewController.swift in Sources */,
 				83182F132BECCF0900F81A7C /* JournalTableCell.swift in Sources */,
