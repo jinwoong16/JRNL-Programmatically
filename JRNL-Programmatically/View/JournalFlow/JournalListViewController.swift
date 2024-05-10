@@ -23,13 +23,13 @@ final class JournalListViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(JournalTableCell.self, forCellReuseIdentifier: "journalCell")
         
-        view.addSubview(tableView)
-        
         configureUI()
         configureNavigationItems()
     }
     
     private func configureUI() {
+        view.addSubview(tableView)
+        
         view.backgroundColor = .white
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
