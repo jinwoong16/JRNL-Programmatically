@@ -8,6 +8,7 @@
 import UIKit
 
 final class JournalTableCell: UITableViewCell {
+    static let identifier = "JournalTableCell"
     
     // MARK: - Components
     private lazy var titleLabel: UILabel = {
