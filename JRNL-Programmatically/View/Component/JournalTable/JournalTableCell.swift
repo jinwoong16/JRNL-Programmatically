@@ -7,8 +7,8 @@
 
 import UIKit
 
-final class JournalTableCell: UITableViewCell {
-    static let identifier = "JournalTableCell"
+final class JournalTableCell: BaseTableViewCell {
+    override class var identifier: String { "JournalTableCell" }
     
     // MARK: - Components
     private lazy var titleLabel: UILabel = {
@@ -28,32 +28,23 @@ final class JournalTableCell: UITableViewCell {
     
     private lazy var thumbnailView: UIImageView = {
         let thumbnailView = UIImageView()
-        thumbnailView.image = UIImage(systemName: "face.smiling")
+        thumbnailView.image = UIImage(systemName: "face.smiling")?.withRenderingMode(.automatic)
+        thumbnailView.contentMode = .scaleAspectFit
         
         return thumbnailView
     }()
     
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+    override func configureUI() {
         addSubview(thumbnailView)
         addSubview(titleLabel)
         addSubview(descriptionLabel)
         
-        configureUI()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func configureUI() {
         thumbnailView.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         
         let global = safeAreaLayoutGuide
+        let marginGuide = layoutMarginsGuide
         
         NSLayoutConstraint.activate([
             thumbnailView.topAnchor.constraint(equalTo: global.topAnchor),
@@ -61,13 +52,13 @@ final class JournalTableCell: UITableViewCell {
             thumbnailView.bottomAnchor.constraint(equalTo: global.bottomAnchor),
             thumbnailView.widthAnchor.constraint(equalToConstant: 90),
             
-            titleLabel.topAnchor.constraint(equalTo: global.topAnchor),
+            titleLabel.topAnchor.constraint(equalTo: marginGuide.topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: thumbnailView.trailingAnchor, constant: 8),
-            titleLabel.trailingAnchor.constraint(equalTo: global.trailingAnchor, constant: 8),
+            titleLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor, constant: 8),
             
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             descriptionLabel.leadingAnchor.constraint(equalTo: thumbnailView.trailingAnchor, constant: 8),
-            descriptionLabel.trailingAnchor.constraint(equalTo: global.trailingAnchor, constant: 8)
+            descriptionLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor, constant: 8)
         ])
     }
     

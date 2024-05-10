@@ -32,7 +32,7 @@ final class JournalListViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(JournalTableCell.self, forCellReuseIdentifier: "journalCell")
+        tableView.register(JournalTableCell.self, forCellReuseIdentifier: JournalTableCell.identifier)
         
         configureUI()
         configureNavigationItems()
@@ -100,5 +100,13 @@ extension JournalListViewController: UITableViewDataSource {
 extension JournalListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         90
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let journal = viewModel.journals[indexPath.row]
+        let viewController = JournalDetailTableViewController(
+            viewModel: JournalDetailTableViewModel(journal: journal)
+        )
+        show(viewController, sender: self)
     }
 }
