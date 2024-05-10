@@ -32,6 +32,7 @@
 		83F4A59F2BEE47C200CC3C4B /* CommonField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4A59E2BEE47C200CC3C4B /* CommonField.swift */; };
 		83F4A5A42BEE489200CC3C4B /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4A5A32BEE489200CC3C4B /* BaseTableViewCell.swift */; };
 		83F4A5AE2BEE4E1300CC3C4B /* CellContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4A5AD2BEE4E1300CC3C4B /* CellContentType.swift */; };
+		83F4A5B02BEE665500CC3C4B /* JournalDetailTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4A5AF2BEE665500CC3C4B /* JournalDetailTableViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		83F4A59E2BEE47C200CC3C4B /* CommonField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonField.swift; sourceTree = "<group>"; };
 		83F4A5A32BEE489200CC3C4B /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		83F4A5AD2BEE4E1300CC3C4B /* CellContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellContentType.swift; sourceTree = "<group>"; };
+		83F4A5AF2BEE665500CC3C4B /* JournalDetailTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalDetailTableViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				83F4A5902BEE263B00CC3C4B /* JournalListViewModel.swift */,
+				83F4A5AF2BEE665500CC3C4B /* JournalDetailTableViewModel.swift */,
 			);
 			path = JournalFlow;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				83F4A5972BEE408400CC3C4B /* JournalDetailTableLabelCell.swift in Sources */,
 				83182EE12BECCDD700F81A7C /* SceneDelegate.swift in Sources */,
 				83F4A59A2BEE417F00CC3C4B /* JournalDetailTableTextCell.swift in Sources */,
+				83F4A5B02BEE665500CC3C4B /* JournalDetailTableViewModel.swift in Sources */,
 				83F4A5912BEE263B00CC3C4B /* JournalListViewModel.swift in Sources */,
 				83182F192BECE14A00F81A7C /* MapViewController.swift in Sources */,
 				83F4A58D2BEE245F00CC3C4B /* JournalMock.swift in Sources */,
