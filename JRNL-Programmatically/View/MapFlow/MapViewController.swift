@@ -6,18 +6,35 @@
 //
 
 import UIKit
+import MapKit
 
 final class MapViewController: UIViewController {
-    private lazy var emptyView: UILabel = {
-        let emptyView = UILabel()
-        emptyView.text = "Empty"
+    private lazy var mapView: MKMapView = {
+        let mapView = MKMapView()
         
-        return emptyView
+        return mapView
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.addSubview(emptyView)
+        
+        configureUI()
+    }
+    
+    private func configureUI() {
+        view.addSubview(mapView)
+        
+        view.backgroundColor = .white
+        
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let global = view.safeAreaLayoutGuide
+        
+        NSLayoutConstraint.activate([
+            mapView.topAnchor.constraint(equalTo: global.topAnchor),
+            mapView.leadingAnchor.constraint(equalTo: global.leadingAnchor),
+            mapView.trailingAnchor.constraint(equalTo: global.trailingAnchor),
+            mapView.bottomAnchor.constraint(equalTo: global.bottomAnchor),
+        ])
     }
 }
