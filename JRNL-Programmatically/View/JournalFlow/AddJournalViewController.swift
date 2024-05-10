@@ -8,6 +8,7 @@
 import UIKit
 
 final class AddJournalViewController: UIViewController {
+    // MARK: - Components
     private lazy var mainContainer: UIStackView = {
         let mainContainer = UIStackView()
         mainContainer.axis = .vertical
@@ -73,6 +74,7 @@ final class AddJournalViewController: UIViewController {
         return journalImageView
     }()
 
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         

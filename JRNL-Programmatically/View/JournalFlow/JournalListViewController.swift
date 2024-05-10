@@ -8,12 +8,14 @@
 import UIKit
 
 final class JournalListViewController: UIViewController {
+    // MARK: - Components
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         
         return tableView
     }()
 
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
