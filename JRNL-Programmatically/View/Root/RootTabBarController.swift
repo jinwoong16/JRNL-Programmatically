@@ -38,7 +38,9 @@ final class RootTabBarController: UITabBarController {
         
         switch page {
             case .journal:
-                let journalListViewController = JournalListViewController()
+                let journalListViewController = JournalListViewController(
+                    viewModel: JournalListViewModel()
+                )
                 navController.pushViewController(journalListViewController, animated: false)
             case .map:
                 let mapViewController = MapViewController()
