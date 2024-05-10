@@ -8,7 +8,6 @@
 import UIKit
 
 protocol CommonField {
-    var cellContentType: CellContentType { get }
     var height: CGFloat? { get }
     
     func register(for tableView: UITableView)
