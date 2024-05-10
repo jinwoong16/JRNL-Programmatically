@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class JournalTableCell: UITableViewCell {
+final class JournalTableCell: BaseTableViewCell {
     static let identifier = "JournalTableCell"
     
     // MARK: - Components
@@ -33,22 +33,11 @@ final class JournalTableCell: UITableViewCell {
         return thumbnailView
     }()
     
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+    override func configureUI() {
         addSubview(thumbnailView)
         addSubview(titleLabel)
         addSubview(descriptionLabel)
         
-        configureUI()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func configureUI() {
         thumbnailView.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
