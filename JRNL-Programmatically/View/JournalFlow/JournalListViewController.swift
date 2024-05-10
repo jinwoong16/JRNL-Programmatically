@@ -85,7 +85,10 @@ extension JournalListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "journalCell", for: indexPath) as? JournalTableCell else {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: JournalTableCell.identifier,
+            for: indexPath
+        ) as? JournalTableCell else {
             return UITableViewCell()
         }
         cell.setup(with: viewModel.journals[indexPath.row])
