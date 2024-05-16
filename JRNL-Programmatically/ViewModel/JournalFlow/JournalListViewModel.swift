@@ -6,11 +6,30 @@
 //
 
 import Foundation
+import Combine
 
 final class JournalListViewModel {
-    private(set) var journals: [Journal] = Journal.mocks
+    private let useCase: any JournalListViewUseCase
+    private var disposableBag = Set<AnyCancellable>()
+    @Published private(set) var journals: [Journal] = []
+    
+    init(useCase: any JournalListViewUseCase) {
+        self.useCase = useCase
+    }
     
     func appendJournal(_ journal: Journal) {
         journals.append(journal)
+    }
+    
+    func viewDidLoad() {
+        useCase
+            .fetchAll()
+            .assign(to: &$journals)
+        useCase
+            .receiveAppendingEvent()
+            .sink { [weak self] journal in
+                self?.journals.append(journal)
+            }
+            .store(in: &disposableBag)
     }
 }
