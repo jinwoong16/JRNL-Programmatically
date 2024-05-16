@@ -80,7 +80,12 @@ final class JournalListViewController: UIViewController {
     }
     
     @objc private func addJournal() {
-        let viewController = AddJournalViewController()
+        @Injected(AddJournalViewUseCaseKey.self) var useCase: AddJournalViewUseCase
+        let viewController = AddJournalViewController(
+            viewModel: AddJournalViewModel(
+                useCase: useCase
+            )
+        )
         let navigationController = UINavigationController(rootViewController: viewController)
         present(navigationController, animated: true)
     }
