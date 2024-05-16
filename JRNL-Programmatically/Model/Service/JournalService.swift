@@ -46,6 +46,7 @@ final class JournalService {
     }
     
     func appendEvent() -> AnyPublisher<Journal, Never> {
-        appendingEvent.eraseToAnyPublisher()
+        appendingEvent
+            .eraseToAnyPublisher()
     }
 }
