@@ -92,6 +92,7 @@ extension JournalListViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         cell.setup(with: viewModel.journals[indexPath.row])
+        cell.selectionStyle = .none
         
         return cell
     }
