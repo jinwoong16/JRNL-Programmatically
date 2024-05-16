@@ -9,6 +9,6 @@ import Foundation
 import Combine
 
 protocol JournalListViewUseCase {
-    func fetchAll() -> [Journal]
+    func fetchAll() -> AnyPublisher<[Journal], Never>
     func receiveAppendingEvent() -> AnyPublisher<Journal, Never>
 }
