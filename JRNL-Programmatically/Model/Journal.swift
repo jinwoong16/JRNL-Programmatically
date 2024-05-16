@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Journal: Identifiable {
+struct Journal: Identifiable, Codable {
     let id: UUID
     let date: Date
     let rating: Int

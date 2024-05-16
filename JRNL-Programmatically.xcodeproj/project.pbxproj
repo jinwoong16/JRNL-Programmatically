@@ -22,6 +22,10 @@
 		83182F192BECE14A00F81A7C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83182F182BECE14A00F81A7C /* MapViewController.swift */; };
 		83182F1C2BECE40600F81A7C /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83182F1B2BECE40600F81A7C /* AppAppearance.swift */; };
 		83182F212BECE92600F81A7C /* AddJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83182F202BECE92600F81A7C /* AddJournalViewController.swift */; };
+		83A10B462BF61769009772A6 /* JournalFlowUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B452BF61769009772A6 /* JournalFlowUseCase.swift */; };
+		83A10B482BF6209B009772A6 /* AddJournalViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B472BF6209B009772A6 /* AddJournalViewUseCase.swift */; };
+		83A10B4F2BF62839009772A6 /* JournalFileContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B4E2BF62839009772A6 /* JournalFileContainer.swift */; };
+		83A10B532BF62873009772A6 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B522BF62873009772A6 /* Container.swift */; };
 		83F4A58A2BEE237300CC3C4B /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4A5892BEE237300CC3C4B /* Journal.swift */; };
 		83F4A58D2BEE245F00CC3C4B /* JournalMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4A58C2BEE245F00CC3C4B /* JournalMock.swift */; };
 		83F4A5912BEE263B00CC3C4B /* JournalListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4A5902BEE263B00CC3C4B /* JournalListViewModel.swift */; };
@@ -72,6 +76,10 @@
 		83182F182BECE14A00F81A7C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		83182F1B2BECE40600F81A7C /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
 		83182F202BECE92600F81A7C /* AddJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalViewController.swift; sourceTree = "<group>"; };
+		83A10B452BF61769009772A6 /* JournalFlowUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFlowUseCase.swift; sourceTree = "<group>"; };
+		83A10B472BF6209B009772A6 /* AddJournalViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalViewUseCase.swift; sourceTree = "<group>"; };
+		83A10B4E2BF62839009772A6 /* JournalFileContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFileContainer.swift; sourceTree = "<group>"; };
+		83A10B522BF62873009772A6 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		83F4A5892BEE237300CC3C4B /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
 		83F4A58C2BEE245F00CC3C4B /* JournalMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalMock.swift; sourceTree = "<group>"; };
 		83F4A5902BEE263B00CC3C4B /* JournalListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalListViewModel.swift; sourceTree = "<group>"; };
@@ -221,9 +229,45 @@
 			path = MapFlow;
 			sourceTree = "<group>";
 		};
+		83A10B442BF61740009772A6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				83A10B512BF62869009772A6 /* Container */,
+				83A10B502BF62860009772A6 /* UseCase */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		83A10B4D2BF6282D009772A6 /* FileContainer */ = {
+			isa = PBXGroup;
+			children = (
+				83A10B4E2BF62839009772A6 /* JournalFileContainer.swift */,
+			);
+			path = FileContainer;
+			sourceTree = "<group>";
+		};
+		83A10B502BF62860009772A6 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				83A10B452BF61769009772A6 /* JournalFlowUseCase.swift */,
+				83A10B472BF6209B009772A6 /* AddJournalViewUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		83A10B512BF62869009772A6 /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				83A10B522BF62873009772A6 /* Container.swift */,
+			);
+			path = Container;
+			sourceTree = "<group>";
+		};
 		83F4A5882BEE236B00CC3C4B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				83A10B4D2BF6282D009772A6 /* FileContainer */,
+				83A10B442BF61740009772A6 /* Protocols */,
 				83F4A5892BEE237300CC3C4B /* Journal.swift */,
 			);
 			path = Model;
@@ -438,14 +482,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				83182F102BECCE3A00F81A7C /* JournalListViewController.swift in Sources */,
+				83A10B4F2BF62839009772A6 /* JournalFileContainer.swift in Sources */,
 				83F4A58A2BEE237300CC3C4B /* Journal.swift in Sources */,
+				83A10B482BF6209B009772A6 /* AddJournalViewUseCase.swift in Sources */,
 				83182F172BECD8B400F81A7C /* RootTabBarController.swift in Sources */,
 				83F4A5AE2BEE4E1300CC3C4B /* CellContentType.swift in Sources */,
+				83A10B462BF61769009772A6 /* JournalFlowUseCase.swift in Sources */,
 				83F4A59F2BEE47C200CC3C4B /* CommonField.swift in Sources */,
 				83F4A5A42BEE489200CC3C4B /* BaseTableViewCell.swift in Sources */,
 				83182F212BECE92600F81A7C /* AddJournalViewController.swift in Sources */,
 				83182EE32BECCDD700F81A7C /* ViewController.swift in Sources */,
 				83182F132BECCF0900F81A7C /* JournalTableCell.swift in Sources */,
+				83A10B532BF62873009772A6 /* Container.swift in Sources */,
 				83182EDF2BECCDD700F81A7C /* AppDelegate.swift in Sources */,
 				83F4A5932BEE399D00CC3C4B /* JournalDetailTableViewController.swift in Sources */,
 				83F4A5972BEE408400CC3C4B /* JournalDetailTableLabelCell.swift in Sources */,
