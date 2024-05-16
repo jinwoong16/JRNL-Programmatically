@@ -7,18 +7,31 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 final class MapViewController: UIViewController {
+    // MARK: - Components
     private lazy var mapView: MKMapView = {
         let mapView = MKMapView()
         
         return mapView
     }()
+    
+    private let locationManager = CLLocationManager()
 
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureUI()
+        configureNavigationItems()
+        configureCLLocation()
+        configureMapView()
+    }
+    
+    override func viewIsAppearing(_ animated: Bool) {
+        super.viewIsAppearing(animated)
+        locationManager.requestLocation()
     }
     
     private func configureUI() {
@@ -37,6 +50,24 @@ final class MapViewController: UIViewController {
             mapView.bottomAnchor.constraint(equalTo: global.bottomAnchor),
         ])
     }
+    
+    private func configureNavigationItems() {
+        navigationItem.title = "Map"
+    }
+    
+    private func configureCLLocation() {
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+    }
+    
+    private func configureMapView() {
+        mapView.delegate = self
+    }
+    
+    // TODO: Add Annotation with Model data
+}
+
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let currentLocation = locations.first else {
