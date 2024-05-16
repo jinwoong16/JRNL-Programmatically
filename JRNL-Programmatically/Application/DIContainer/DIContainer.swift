@@ -22,9 +22,15 @@ extension DIContainer {
     
     func resolve<T>(for type: Any.Type?) -> T {
         let name = type.map { String(describing: $0) } ?? String(describing: T.self)
+        if let resolved = modules[name]?.resolved as? T {
+            return resolved
+        }
+        
         guard let dependency: T = modules[name]?.resolve() as? T else {
             fatalError("dependency \(T.self) not resolved.")
         }
+        modules[name]?.resolved = dependency
+        
         return dependency
     }
 }
