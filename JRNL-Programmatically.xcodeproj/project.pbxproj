@@ -159,11 +159,13 @@
 		83182EDD2BECCDD700F81A7C /* JRNL-Programmatically */ = {
 			isa = PBXGroup;
 			children = (
+				83182F1A2BECE3F600F81A7C /* Application */,
 				83182F0E2BECCDF800F81A7C /* View */,
 				83F4A58E2BEE262300CC3C4B /* ViewModel */,
+				83A10B7B2BF66ABA009772A6 /* Data */,
+				83A10B542BF62BCE009772A6 /* Domain */,
 				83F4A58B2BEE242100CC3C4B /* Preview_Contents */,
 				83F4A5882BEE236B00CC3C4B /* Model */,
-				83182F1A2BECE3F600F81A7C /* Application */,
 				83182EE22BECCDD700F81A7C /* ViewController.swift */,
 				83182EE42BECCDD700F81A7C /* Main.storyboard */,
 				83182EE72BECCDD900F81A7C /* Assets.xcassets */,
@@ -285,6 +287,7 @@
 		83A10B542BF62BCE009772A6 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				83A10B442BF61740009772A6 /* Protocols */,
 				83A10B552BF62BEE009772A6 /* DefaultJournalListViewUseCase.swift */,
 				83A10B692BF64AC9009772A6 /* DefaultAddJournalViewUseCase.swift */,
 			);
@@ -319,14 +322,27 @@
 			path = Keys;
 			sourceTree = "<group>";
 		};
+		83A10B7B2BF66ABA009772A6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				83A10B4D2BF6282D009772A6 /* FileContainer */,
+				83A10B572BF62C69009772A6 /* Service */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		83A10B7C2BF66B48009772A6 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				83F4A5892BEE237300CC3C4B /* Journal.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		83F4A5882BEE236B00CC3C4B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				83A10B572BF62C69009772A6 /* Service */,
-				83A10B542BF62BCE009772A6 /* Domain */,
-				83A10B4D2BF6282D009772A6 /* FileContainer */,
-				83A10B442BF61740009772A6 /* Protocols */,
-				83F4A5892BEE237300CC3C4B /* Journal.swift */,
+				83A10B7C2BF66B48009772A6 /* Entities */,
 			);
 			path = Model;
 			sourceTree = "<group>";
