@@ -8,11 +8,7 @@
 import Foundation
 
 actor JournalFileContainer: Container {
-    private let fileManager: FileManager
-    
-    init(fileManager: FileManager = .default) {
-        self.fileManager = fileManager
-    }
+    private let fileManager: FileManager = .default
     
     func read() async throws -> [Journal] {
         let path = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
