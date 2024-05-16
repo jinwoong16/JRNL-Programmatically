@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol JournalSendable: NSObject {
-    func sendJournal(_ journal: Journal)
-}
-
 final class AddJournalViewController: UIViewController {
     // MARK: - Components
     private lazy var mainContainer: UIStackView = {
@@ -77,8 +73,6 @@ final class AddJournalViewController: UIViewController {
         
         return journalImageView
     }()
-    
-    weak var delegate: JournalSendable?
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -149,14 +143,14 @@ final class AddJournalViewController: UIViewController {
         guard let title = journalTextField.text else { return }
         guard let description = journalTextView.text else { return }
         
-        delegate?.sendJournal(
-            Journal(
-                rating: 5,
-                journalTitle: title,
-                journalDescription: description,
-                photoUrl: "face.smiling"
-            )
-        )
+//        delegate?.sendJournal(
+//            Journal(
+//                rating: 5,
+//                journalTitle: title,
+//                journalDescription: description,
+//                photoUrl: "face.smiling"
+//            )
+//        )
         dismiss(animated: true)
     }
     

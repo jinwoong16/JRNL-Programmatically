@@ -82,15 +82,7 @@ final class JournalListViewController: UIViewController {
     @objc private func addJournal() {
         let viewController = AddJournalViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
-        viewController.delegate = self
         present(navigationController, animated: true)
-    }
-}
-
-extension JournalListViewController: JournalSendable {
-    func sendJournal(_ journal: Journal) {
-        viewModel.appendJournal(journal)
-        tableView.reloadData()
     }
 }
 
