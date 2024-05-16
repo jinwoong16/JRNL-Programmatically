@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 final class AddJournalViewController: UIViewController {
     // MARK: - Components
@@ -73,13 +74,37 @@ final class AddJournalViewController: UIViewController {
         
         return journalImageView
     }()
-
+    
+    private let viewModel: AddJournalViewModel
+    private var disposableBag = Set<AnyCancellable>()
+    
+    init(viewModel: AddJournalViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureUI()
         configureNavigationItems()
+        bind()
+    }
+    
+    func bind() {
+        viewModel
+            .$isSuccess
+            .dropFirst()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] condition in
+                if condition { self?.dismiss(animated: true) }
+            }
+            .store(in: &disposableBag)
     }
     
     private func configureUI() {
@@ -143,15 +168,14 @@ final class AddJournalViewController: UIViewController {
         guard let title = journalTextField.text else { return }
         guard let description = journalTextView.text else { return }
         
-//        delegate?.sendJournal(
-//            Journal(
-//                rating: 5,
-//                journalTitle: title,
-//                journalDescription: description,
-//                photoUrl: "face.smiling"
-//            )
-//        )
-        dismiss(animated: true)
+        viewModel.save(
+            with: Journal(
+                rating: 5,
+                journalTitle: title,
+                journalDescription: description,
+                photoUrl: "face.smiling"
+            )
+        )
     }
     
     @objc private func cancel() {
