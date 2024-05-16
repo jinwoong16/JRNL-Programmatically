@@ -22,7 +22,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         resolveService()
         resolveUseCase()
         
-        let journalContainer = JournalFileContainer()
         let rootViewController = RootTabBarController()
         window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
@@ -79,7 +78,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 @Injected(JournalServiceKey.self) var service: JournalService
                 return DefaultJournalListViewUseCase(journalService: service)
             }
+            Module(AddJournalViewUseCaseKey.self) {
+                @Injected(JournalServiceKey.self) var service: JournalService
+                return DefaultAddJournalViewUseCase(journalService: service)
+            }
         }
     }
 }
-
