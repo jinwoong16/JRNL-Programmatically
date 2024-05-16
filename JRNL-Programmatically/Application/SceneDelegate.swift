@@ -18,10 +18,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
 
         AppAppearance.setupAppearance()
+        resolveContainer()
+        resolveService()
+        resolveUseCase()
+        
+        let journalContainer = JournalFileContainer()
         let rootViewController = RootTabBarController()
         window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
     }
+    
+    
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
@@ -50,7 +57,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
+    
+    private func resolveContainer() {
+        DIContainer.shared.register {
+            Module(JournalFileContainerKey.self) { JournalFileContainer() }
+        }
+    }
+    
+    private func resolveService() {
+        DIContainer.shared.register {
+            Module(JournalServiceKey.self) {
+                @Injected(JournalFileContainerKey.self) var container: JournalFileContainer
+                return JournalService(container: container)
+            }
+        }
+    }
+    
+    private func resolveUseCase() {
+        DIContainer.shared.register {
+            Module(JournalListViewUseCaseKey.self) {
+                @Injected(JournalServiceKey.self) var service: JournalService
+                return DefaultJournalListViewUseCase(journalService: service)
+            }
+        }
+    }
 }
 
