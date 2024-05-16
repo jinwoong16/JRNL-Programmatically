@@ -37,4 +37,28 @@ final class MapViewController: UIViewController {
             mapView.bottomAnchor.constraint(equalTo: global.bottomAnchor),
         ])
     }
+extension MapViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let currentLocation = locations.first else {
+            debugPrint(#function, "Could not specify current location.")
+            return
+        }
+        let latitude = currentLocation.coordinate.latitude
+        let longitude = currentLocation.coordinate.longitude
+        mapView.region = MKCoordinateRegion(
+            center: CLLocationCoordinate2D(
+                latitude: latitude,
+                longitude: longitude
+            ),
+            span: MKCoordinateSpan(
+                latitudeDelta: 0.01,
+                longitudeDelta: 0.01
+            )
+        )
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
+        print("Failed to find user's location: \(error.localizedDescription)")
+    }
+}
 }
