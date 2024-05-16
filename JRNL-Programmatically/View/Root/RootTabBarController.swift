@@ -8,7 +8,6 @@
 import UIKit
 
 final class RootTabBarController: UITabBarController {
-    
     override func viewDidLoad() {
         start()
     }
@@ -38,8 +37,11 @@ final class RootTabBarController: UITabBarController {
         
         switch page {
             case .journal:
+                @Injected(JournalListViewUseCaseKey.self) var useCase: JournalListViewUseCase
                 let journalListViewController = JournalListViewController(
-                    viewModel: JournalListViewModel()
+                    viewModel: JournalListViewModel(
+                        useCase: useCase
+                    )
                 )
                 navController.pushViewController(journalListViewController, animated: false)
             case .map:
