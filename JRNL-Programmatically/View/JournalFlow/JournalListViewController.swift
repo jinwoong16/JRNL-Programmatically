@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 final class JournalListViewController: UIViewController {
     // MARK: - Components
@@ -16,6 +17,7 @@ final class JournalListViewController: UIViewController {
     }()
     
     private let viewModel: JournalListViewModel
+    private var disposableBag = Set<AnyCancellable>()
     
     init(viewModel: JournalListViewModel) {
         self.viewModel = viewModel
@@ -36,6 +38,19 @@ final class JournalListViewController: UIViewController {
         
         configureUI()
         configureNavigationItems()
+        
+        viewModel.viewDidLoad()
+        bind()
+    }
+    
+    func bind() {
+        viewModel
+            .$journals
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.tableView.reloadData()
+            }
+            .store(in: &disposableBag)
     }
     
     private func configureUI() {
