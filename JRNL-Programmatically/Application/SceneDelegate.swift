@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftData
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -25,6 +26,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let rootViewController = RootTabBarController()
         window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
+        
+        @Injected(SwiftDataContainerKey.self) var container: SwiftDataContainer
     }
     
     
@@ -60,13 +63,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func resolveContainer() {
         DIContainer.shared.register {
             Module(JournalFileContainerKey.self) { JournalFileContainer() }
+            Module(SwiftDataContainerKey.self) {
+                do {
+                    let container = try ModelContainer(
+                        for: Journal.self,
+                        configurations: ModelConfiguration()
+                    )
+                    return SwiftDataContainer(modelContainer: container)
+                } catch {
+                    fatalError("Could not be reachable to DataBase")
+                }
+            }
         }
     }
     
     private func resolveService() {
         DIContainer.shared.register {
+//            Module(JournalRepositoryKey.self) {
+//                @Injected(JournalFileContainerKey.self) var container: JournalFileContainer
+//                return JournalRepository(container: container)
+//            }
             Module(JournalRepositoryKey.self) {
-                @Injected(JournalFileContainerKey.self) var container: JournalFileContainer
+                @Injected(SwiftDataContainerKey.self) var container: SwiftDataContainer
                 return JournalRepository(container: container)
             }
         }
