@@ -8,6 +8,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Combine
 
 final class MapViewController: UIViewController {
     // MARK: - Components
@@ -17,7 +18,18 @@ final class MapViewController: UIViewController {
         return mapView
     }()
     
+    private let viewModel: MapViewModel
+    private var disposableBag = Set<AnyCancellable>()
     private let locationManager = CLLocationManager()
+    
+    init(viewModel: MapViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -27,11 +39,26 @@ final class MapViewController: UIViewController {
         configureNavigationItems()
         configureCLLocation()
         configureMapView()
+        
+        bind()
     }
     
     override func viewIsAppearing(_ animated: Bool) {
         super.viewIsAppearing(animated)
+        viewModel.viewIsAppearing()
         locationManager.requestLocation()
+    }
+    
+    // MARK: - Methods
+    func bind() {
+        viewModel
+            .$journals
+            .dropFirst()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] journals in
+                self?.mapView.addAnnotations(journals)
+            }
+            .store(in: &disposableBag)
     }
     
     private func configureUI() {
