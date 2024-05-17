@@ -5,9 +5,10 @@
 //  Created by jinwoong Kim on 5/10/24.
 //
 
-import Foundation
+import UIKit
+import MapKit
 
-final class Journal: Identifiable, Codable {
+final class Journal: NSObject, Identifiable, Codable {
     let id: UUID
     let date: Date
     let rating: Int
@@ -35,5 +36,17 @@ final class Journal: Identifiable, Codable {
         self.photoData = photoData
         self.latitude = latitude
         self.longitude = longitude
+    }
+}
+
+extension Journal: MKAnnotation {
+    var coordinate: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: latitude ?? 0, longitude: longitude ?? 0)
+    }
+    var title: String? {
+        journalTitle
+    }
+    var subtitle: String? {
+        date.formatted(.dateTime.year().month().day())
     }
 }
