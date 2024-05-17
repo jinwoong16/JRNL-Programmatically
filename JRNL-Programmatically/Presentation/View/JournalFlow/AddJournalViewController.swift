@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import PhotosUI
 
 final class AddJournalViewController: UIViewController {
     // MARK: - Components
@@ -68,9 +69,19 @@ final class AddJournalViewController: UIViewController {
         return journalTextView
     }()
     
+    private lazy var journalImage: UIImage? = nil 
+    
     private lazy var journalImageView: UIImageView = {
         let journalImageView = UIImageView()
         journalImageView.image = UIImage(systemName: "face.smiling")
+        journalImageView.image = journalImage ?? UIImage(systemName: "face.smiling")
+        journalImageView.isUserInteractionEnabled = true
+        journalImageView.addGestureRecognizer(
+            UITapGestureRecognizer(
+                target: self,
+                action: #selector(presentPicker)
+            )
+        )
         
         return journalImageView
     }()
@@ -181,4 +192,40 @@ final class AddJournalViewController: UIViewController {
     @objc private func cancel() {
         dismiss(animated: true)
     }
+    @objc private func presentPicker() {
+        var configuration = PHPickerConfiguration()
+        configuration.filter = .images
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+}
+
+extension AddJournalViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        
+        let itemProvider = results.first?.itemProvider
+        
+        if let itemProvider,
+           itemProvider.canLoadObject(ofClass: UIImage.self) {
+            itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
+                Task {
+                    if let error {
+                        debugPrint("PHPhotoError: \(error.localizedDescription)")
+                        return
+                    }
+                    
+                    await MainActor.run {
+                        guard let self = self,
+                              let image = image as? UIImage
+                        else { return  }
+                        self.journalImage = image
+                        self.journalImageView.image = image
+                    }
+                }
+            }
+        }
+    }
+}
 }
