@@ -106,6 +106,7 @@ final class AddJournalViewController: UIViewController {
         bind()
     }
     
+    // MARK: - Methods
     func bind() {
         viewModel
             .$isSuccess
@@ -187,14 +188,11 @@ final class AddJournalViewController: UIViewController {
             showAlert(with: .emptyBody)
             return
         }
-        
-        viewModel.save(
-            with: Journal(
-                rating: 5,
-                journalTitle: title,
-                journalDescription: description,
-                photoData: journalImage?.pngData()
-            )
+    
+        viewModel.clickSaveButton(
+            title,
+            body: description, 
+            photoData: journalImage?.pngData()
         )
     }
     
