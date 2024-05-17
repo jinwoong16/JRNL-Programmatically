@@ -76,11 +76,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         DIContainer.shared.register {
             Module(JournalListViewUseCaseKey.self) {
                 @Injected(JournalRepositoryKey.self) var repository: JournalRepository
-                return DefaultJournalListViewUseCase(journalService: repository)
+                return DefaultJournalListViewUseCase(journalRepository: repository)
             }
             Module(AddJournalViewUseCaseKey.self) {
                 @Injected(JournalRepositoryKey.self) var repository: JournalRepository
-                return DefaultAddJournalViewUseCase(journalService: repository)
+                return DefaultAddJournalViewUseCase(journalRepository: repository)
             }
             Module(MapViewUseCaseKey.self) {
                 @Injected(JournalRepositoryKey.self) var repository: JournalRepository

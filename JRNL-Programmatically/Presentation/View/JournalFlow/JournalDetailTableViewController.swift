@@ -26,6 +26,7 @@ final class JournalDetailTableViewController: UITableViewController {
         register()
     }
     
+    // MARK: - Methods
     private func register() {
         viewModel.fields.forEach { field in
             field.register(for: self.tableView)

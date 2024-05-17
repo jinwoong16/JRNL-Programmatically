@@ -9,14 +9,14 @@ import Foundation
 import Combine
 
 final class DefaultAddJournalViewUseCase: AddJournalViewUseCase {
-    private let journalService: JournalRepository
+    private let journalRepository: JournalRepository
     
-    init(journalService: JournalRepository) {
-        self.journalService = journalService
+    init(journalRepository: JournalRepository) {
+        self.journalRepository = journalRepository
     }
     
     func save(journal: Journal) -> AnyPublisher<Bool, Never> {
-        journalService
+        journalRepository
             .write(with: journal)
             .map { true }
             .replaceError(with: false)

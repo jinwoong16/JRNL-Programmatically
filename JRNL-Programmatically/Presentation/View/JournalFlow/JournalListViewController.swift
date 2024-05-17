@@ -43,6 +43,7 @@ final class JournalListViewController: UIViewController {
         bind()
     }
     
+    // MARK: - Methods
     func bind() {
         viewModel
             .$journals

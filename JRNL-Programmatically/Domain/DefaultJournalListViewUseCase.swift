@@ -9,20 +9,20 @@ import Foundation
 import Combine
 
 final class DefaultJournalListViewUseCase: JournalListViewUseCase {
-    private let journalService: JournalRepository
+    private let journalRepository: JournalRepository
     
-    init(journalService: JournalRepository) {
-        self.journalService = journalService
+    init(journalRepository: JournalRepository) {
+        self.journalRepository = journalRepository
     }
     
     func fetchAll() -> AnyPublisher<[Journal], Never> {
-        journalService
+        journalRepository
             .read()
             .replaceError(with: [])
             .eraseToAnyPublisher()
     }
     
     func receiveAppendingEvent() -> AnyPublisher<Journal, Never> {
-        journalService.appendEvent()
+        journalRepository.appendEvent()
     }
 }
