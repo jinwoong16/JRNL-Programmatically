@@ -8,11 +8,11 @@
 import Foundation
 
 extension Journal {
-    static var mock: Self {
+    static var mock: Journal {
         Self.mocks[0]
     }
     
-    static var mocks: [Self] {
+    static var mocks: [Journal] {
         [
             .init(
                 rating: 0,
