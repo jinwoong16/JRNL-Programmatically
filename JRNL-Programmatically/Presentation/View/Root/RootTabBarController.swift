@@ -45,7 +45,12 @@ final class RootTabBarController: UITabBarController {
                 )
                 navController.pushViewController(journalListViewController, animated: false)
             case .map:
-                let mapViewController = MapViewController()
+                @Injected(MapViewUseCaseKey.self) var useCase: MapViewUseCase
+                let mapViewController = MapViewController(
+                    viewModel: MapViewModel(
+                        useCase: useCase
+                    )
+                )
                 navController.pushViewController(mapViewController, animated: false)
         }
         
