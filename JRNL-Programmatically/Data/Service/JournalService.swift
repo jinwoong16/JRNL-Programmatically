@@ -17,7 +17,7 @@ final class JournalService {
     }
     
     func read() -> AnyPublisher<[Journal], Error> {
-        Future<[Journal]?, Error> { promise in
+        Future { promise in
             Task { [weak self] in
                 do {
                     promise(.success(try await self?.container.read()))
@@ -31,7 +31,7 @@ final class JournalService {
     }
     
     func write(with journal: Journal) -> AnyPublisher<Void, Error> {
-        Future<Void, Error> { promise in
+        Future { promise in
             Task { [weak self] in
                 do {
                     try await self?.container.write(with: journal)
