@@ -25,3 +25,7 @@ struct JournalListViewUseCaseKey: InjectionKey {
 struct AddJournalViewUseCaseKey: InjectionKey {
     typealias Value = AddJournalViewUseCase
 }
+
+struct MapViewUseCaseKey: InjectionKey {
+    typealias Value = MapViewUseCase
+}
