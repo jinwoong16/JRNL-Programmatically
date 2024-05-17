@@ -11,6 +11,13 @@ import PhotosUI
 
 final class AddJournalViewController: UIViewController {
     // MARK: - Components
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.style = .large
+        
+        return activityIndicator
+    }()
+    
     private lazy var mainContainer: UIStackView = {
         let mainContainer = UIStackView()
         mainContainer.axis = .vertical
@@ -113,6 +120,7 @@ final class AddJournalViewController: UIViewController {
             .dropFirst()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] condition in
+                self?.stopProcessing()
                 if condition { self?.dismiss(animated: true) }
             }
             .store(in: &disposableBag)
@@ -131,6 +139,7 @@ final class AddJournalViewController: UIViewController {
         mainContainer.addArrangedSubview(journalImageView)
         
         view.addSubview(mainContainer)
+        view.addSubview(activityIndicator)
         
         mainContainer.translatesAutoresizingMaskIntoConstraints = false
         topStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -138,6 +147,7 @@ final class AddJournalViewController: UIViewController {
         journalTextField.translatesAutoresizingMaskIntoConstraints = false
         journalTextView.translatesAutoresizingMaskIntoConstraints = false
         journalImageView.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         
         let global = view.safeAreaLayoutGuide
         
@@ -158,6 +168,9 @@ final class AddJournalViewController: UIViewController {
             
             journalImageView.widthAnchor.constraint(equalToConstant: 200),
             journalImageView.heightAnchor.constraint(equalToConstant: 200),
+            
+            activityIndicator.centerXAnchor.constraint(equalTo: global.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: global.centerYAnchor),
         ])
     }
     
@@ -175,6 +188,16 @@ final class AddJournalViewController: UIViewController {
         )
     }
     
+    private func startProcessing() {
+        activityIndicator.startAnimating()
+        view.isUserInteractionEnabled = false
+    }
+    
+    private func stopProcessing() {
+        activityIndicator.stopAnimating()
+        view.isUserInteractionEnabled = true
+    }
+    
     @objc private func saveEntry() {
         guard let title = journalTextField.text,
               !title.isEmpty
@@ -188,7 +211,7 @@ final class AddJournalViewController: UIViewController {
             showAlert(with: .emptyBody)
             return
         }
-    
+        startProcessing()
         viewModel.clickSaveButton(
             title,
             body: description, 
