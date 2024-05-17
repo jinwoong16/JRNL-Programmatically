@@ -8,29 +8,29 @@
 import Foundation
 
 extension Journal {
-    static var mock: Self {
+    static var mock: Journal {
         Self.mocks[0]
     }
     
-    static var mocks: [Self] {
+    static var mocks: [Journal] {
         [
             .init(
                 rating: 0,
                 journalTitle: "Bad",
                 journalDescription: "Today is bad day",
-                photoUrl: "cloud"
+                photoData: nil
             ),
             .init(
                 rating: 5,
                 journalTitle: "Good",
                 journalDescription: "Today is good day",
-                photoUrl: "sun.max"
+                photoData: nil
             ),
             .init(
                 rating: 3,
                 journalTitle: "Ok",
                 journalDescription: "Today is Ok day",
-                photoUrl: "cloud.sun"
+                photoData: nil
             )
         ]
     }

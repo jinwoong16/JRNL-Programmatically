@@ -18,10 +18,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
 
         AppAppearance.setupAppearance()
+        resolveContainer()
+        resolveService()
+        resolveUseCase()
+        
         let rootViewController = RootTabBarController()
         window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
     }
+    
+    
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
@@ -50,7 +56,36 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
+    
+    private func resolveContainer() {
+        DIContainer.shared.register {
+            Module(JournalFileContainerKey.self) { JournalFileContainer() }
+        }
+    }
+    
+    private func resolveService() {
+        DIContainer.shared.register {
+            Module(JournalRepositoryKey.self) {
+                @Injected(JournalFileContainerKey.self) var container: JournalFileContainer
+                return JournalRepository(container: container)
+            }
+        }
+    }
+    
+    private func resolveUseCase() {
+        DIContainer.shared.register {
+            Module(JournalListViewUseCaseKey.self) {
+                @Injected(JournalRepositoryKey.self) var repository: JournalRepository
+                return DefaultJournalListViewUseCase(journalRepository: repository)
+            }
+            Module(AddJournalViewUseCaseKey.self) {
+                @Injected(JournalRepositoryKey.self) var repository: JournalRepository
+                return DefaultAddJournalViewUseCase(journalRepository: repository)
+            }
+            Module(MapViewUseCaseKey.self) {
+                @Injected(JournalRepositoryKey.self) var repository: JournalRepository
+                return DefaultMapViewUseCase(journalRepository: repository)
+            }
+        }
+    }
 }
-
