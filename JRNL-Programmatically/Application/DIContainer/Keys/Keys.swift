@@ -13,8 +13,8 @@ struct JournalFileContainerKey: InjectionKey {
 }
 
 // MARK: - Service
-struct JournalServiceKey: InjectionKey {
-    typealias Value = JournalService
+struct JournalRepositoryKey: InjectionKey {
+    typealias Value = JournalRepository
 }
 
 // MARK: - UseCases

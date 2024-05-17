@@ -27,7 +27,7 @@
 		83A10B4F2BF62839009772A6 /* JournalFileContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B4E2BF62839009772A6 /* JournalFileContainer.swift */; };
 		83A10B532BF62873009772A6 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B522BF62873009772A6 /* Container.swift */; };
 		83A10B562BF62BEE009772A6 /* DefaultJournalListViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B552BF62BEE009772A6 /* DefaultJournalListViewUseCase.swift */; };
-		83A10B592BF62C82009772A6 /* JournalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B582BF62C82009772A6 /* JournalService.swift */; };
+		83A10B592BF62C82009772A6 /* JournalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B582BF62C82009772A6 /* JournalRepository.swift */; };
 		83A10B5C2BF63900009772A6 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B5B2BF63900009772A6 /* DIContainer.swift */; };
 		83A10B5F2BF63B8B009772A6 /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B5E2BF63B8B009772A6 /* Injected.swift */; };
 		83A10B612BF63B9C009772A6 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B602BF63B9C009772A6 /* Module.swift */; };
@@ -90,7 +90,7 @@
 		83A10B4E2BF62839009772A6 /* JournalFileContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFileContainer.swift; sourceTree = "<group>"; };
 		83A10B522BF62873009772A6 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		83A10B552BF62BEE009772A6 /* DefaultJournalListViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultJournalListViewUseCase.swift; sourceTree = "<group>"; };
-		83A10B582BF62C82009772A6 /* JournalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalService.swift; sourceTree = "<group>"; };
+		83A10B582BF62C82009772A6 /* JournalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalRepository.swift; sourceTree = "<group>"; };
 		83A10B5B2BF63900009772A6 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		83A10B5E2BF63B8B009772A6 /* Injected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injected.swift; sourceTree = "<group>"; };
 		83A10B602BF63B9C009772A6 /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
@@ -292,12 +292,12 @@
 			path = Domain;
 			sourceTree = "<group>";
 		};
-		83A10B572BF62C69009772A6 /* Service */ = {
+		83A10B572BF62C69009772A6 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				83A10B582BF62C82009772A6 /* JournalService.swift */,
+				83A10B582BF62C82009772A6 /* JournalRepository.swift */,
 			);
-			path = Service;
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		83A10B5A2BF638EE009772A6 /* DIContainer */ = {
@@ -325,7 +325,7 @@
 			children = (
 				83F4A5882BEE236B00CC3C4B /* Model */,
 				83A10B4D2BF6282D009772A6 /* FileContainer */,
-				83A10B572BF62C69009772A6 /* Service */,
+				83A10B572BF62C69009772A6 /* Repository */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -603,7 +603,7 @@
 				83A10B6A2BF64AC9009772A6 /* DefaultAddJournalViewUseCase.swift in Sources */,
 				83182EE12BECCDD700F81A7C /* SceneDelegate.swift in Sources */,
 				83F4A59A2BEE417F00CC3C4B /* JournalDetailTableTextCell.swift in Sources */,
-				83A10B592BF62C82009772A6 /* JournalService.swift in Sources */,
+				83A10B592BF62C82009772A6 /* JournalRepository.swift in Sources */,
 				83F4A5B02BEE665500CC3C4B /* JournalDetailTableViewModel.swift in Sources */,
 				83F4A5912BEE263B00CC3C4B /* JournalListViewModel.swift in Sources */,
 				83182F192BECE14A00F81A7C /* MapViewController.swift in Sources */,

@@ -9,9 +9,9 @@ import Foundation
 import Combine
 
 final class DefaultAddJournalViewUseCase: AddJournalViewUseCase {
-    private let journalService: JournalService
+    private let journalService: JournalRepository
     
-    init(journalService: JournalService) {
+    init(journalService: JournalRepository) {
         self.journalService = journalService
     }
     

@@ -65,9 +65,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func resolveService() {
         DIContainer.shared.register {
-            Module(JournalServiceKey.self) {
+            Module(JournalRepositoryKey.self) {
                 @Injected(JournalFileContainerKey.self) var container: JournalFileContainer
-                return JournalService(container: container)
+                return JournalRepository(container: container)
             }
         }
     }
@@ -75,11 +75,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func resolveUseCase() {
         DIContainer.shared.register {
             Module(JournalListViewUseCaseKey.self) {
-                @Injected(JournalServiceKey.self) var service: JournalService
+                @Injected(JournalRepositoryKey.self) var service: JournalRepository
                 return DefaultJournalListViewUseCase(journalService: service)
             }
             Module(AddJournalViewUseCaseKey.self) {
-                @Injected(JournalServiceKey.self) var service: JournalService
+                @Injected(JournalRepositoryKey.self) var service: JournalRepository
                 return DefaultAddJournalViewUseCase(journalService: service)
             }
         }

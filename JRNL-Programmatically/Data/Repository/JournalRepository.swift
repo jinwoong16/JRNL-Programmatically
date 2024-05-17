@@ -1,5 +1,5 @@
 //
-//  JournalService.swift
+//  JournalRepository.swift
 //  JRNL-Programmatically
 //
 //  Created by jinwoong Kim on 5/16/24.
@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class JournalService {
+final class JournalRepository {
     private let container: any Container<Journal>
     private var appendingEvent = PassthroughSubject<Journal, Never>()
     
