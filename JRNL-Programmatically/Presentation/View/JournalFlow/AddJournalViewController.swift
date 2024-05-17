@@ -73,7 +73,6 @@ final class AddJournalViewController: UIViewController {
     
     private lazy var journalImageView: UIImageView = {
         let journalImageView = UIImageView()
-        journalImageView.image = UIImage(systemName: "face.smiling")
         journalImageView.image = journalImage ?? UIImage(systemName: "face.smiling")
         journalImageView.isUserInteractionEnabled = true
         journalImageView.addGestureRecognizer(
@@ -176,15 +175,25 @@ final class AddJournalViewController: UIViewController {
     }
     
     @objc private func saveEntry() {
-        guard let title = journalTextField.text else { return }
-        guard let description = journalTextView.text else { return }
+        guard let title = journalTextField.text,
+              !title.isEmpty
+        else {
+            showAlert(with: .emptyTitle)
+            return
+        }
+        guard let description = journalTextView.text,
+              !description.isEmpty
+        else {
+            showAlert(with: .emptyBody)
+            return
+        }
         
         viewModel.save(
             with: Journal(
                 rating: 5,
                 journalTitle: title,
                 journalDescription: description,
-                photoData: nil
+                photoData: journalImage?.pngData()
             )
         )
     }
@@ -192,6 +201,7 @@ final class AddJournalViewController: UIViewController {
     @objc private func cancel() {
         dismiss(animated: true)
     }
+    
     @objc private func presentPicker() {
         var configuration = PHPickerConfiguration()
         configuration.filter = .images
@@ -228,4 +238,26 @@ extension AddJournalViewController: PHPickerViewControllerDelegate {
         }
     }
 }
+
+extension AddJournalViewController: Alertable {
+    enum AlertMessage: Equatable {
+        case emptyTitle
+        case emptyBody
+        
+        var description: String {
+            switch self {
+                case .emptyTitle:
+                    return "Please add your journal title"
+                case .emptyBody:
+                    return "Please add your journal body"
+            }
+        }
+    }
+    
+    func showAlert(with alertMessage: AlertMessage) {
+        showAlert(
+            title: "Fulfill your story",
+            message: alertMessage.description
+        )
+    }
 }
