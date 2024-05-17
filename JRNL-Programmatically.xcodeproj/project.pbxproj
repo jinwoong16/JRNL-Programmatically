@@ -36,6 +36,9 @@
 		83A10B682BF64A63009772A6 /* AddJournalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B672BF64A63009772A6 /* AddJournalViewModel.swift */; };
 		83A10B6A2BF64AC9009772A6 /* DefaultAddJournalViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B692BF64AC9009772A6 /* DefaultAddJournalViewUseCase.swift */; };
 		83A10B822BF7862A009772A6 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B812BF7862A009772A6 /* Alertable.swift */; };
+		83A10B842BF791A9009772A6 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B832BF791A9009772A6 /* MapViewModel.swift */; };
+		83A10B862BF791EB009772A6 /* MapViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B852BF791EB009772A6 /* MapViewUseCase.swift */; };
+		83A10B882BF7926D009772A6 /* DefaultMapViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B872BF7926D009772A6 /* DefaultMapViewUseCase.swift */; };
 		83F4A58A2BEE237300CC3C4B /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4A5892BEE237300CC3C4B /* Journal.swift */; };
 		83F4A58D2BEE245F00CC3C4B /* JournalMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4A58C2BEE245F00CC3C4B /* JournalMock.swift */; };
 		83F4A5912BEE263B00CC3C4B /* JournalListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4A5902BEE263B00CC3C4B /* JournalListViewModel.swift */; };
@@ -100,6 +103,9 @@
 		83A10B672BF64A63009772A6 /* AddJournalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalViewModel.swift; sourceTree = "<group>"; };
 		83A10B692BF64AC9009772A6 /* DefaultAddJournalViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAddJournalViewUseCase.swift; sourceTree = "<group>"; };
 		83A10B812BF7862A009772A6 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
+		83A10B832BF791A9009772A6 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		83A10B852BF791EB009772A6 /* MapViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewUseCase.swift; sourceTree = "<group>"; };
+		83A10B872BF7926D009772A6 /* DefaultMapViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMapViewUseCase.swift; sourceTree = "<group>"; };
 		83F4A5892BEE237300CC3C4B /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
 		83F4A58C2BEE245F00CC3C4B /* JournalMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalMock.swift; sourceTree = "<group>"; };
 		83F4A5902BEE263B00CC3C4B /* JournalListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalListViewModel.swift; sourceTree = "<group>"; };
@@ -273,6 +279,7 @@
 			children = (
 				83A10B452BF61769009772A6 /* JournalListViewUseCase.swift */,
 				83A10B472BF6209B009772A6 /* AddJournalViewUseCase.swift */,
+				83A10B852BF791EB009772A6 /* MapViewUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -291,6 +298,7 @@
 				83A10B442BF61740009772A6 /* Protocols */,
 				83A10B552BF62BEE009772A6 /* DefaultJournalListViewUseCase.swift */,
 				83A10B692BF64AC9009772A6 /* DefaultAddJournalViewUseCase.swift */,
+				83A10B872BF7926D009772A6 /* DefaultMapViewUseCase.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -353,16 +361,9 @@
 		83A10B7E2BF7225C009772A6 /* MapFlow */ = {
 			isa = PBXGroup;
 			children = (
-				83A10B7F2BF72268009772A6 /* EntityWrapper */,
+				83A10B832BF791A9009772A6 /* MapViewModel.swift */,
 			);
 			path = MapFlow;
-			sourceTree = "<group>";
-		};
-		83A10B7F2BF72268009772A6 /* EntityWrapper */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = EntityWrapper;
 			sourceTree = "<group>";
 		};
 		83A10B802BF78620009772A6 /* Utils */ = {
@@ -596,12 +597,15 @@
 				83A10B4F2BF62839009772A6 /* JournalFileContainer.swift in Sources */,
 				83F4A58A2BEE237300CC3C4B /* Journal.swift in Sources */,
 				83A10B682BF64A63009772A6 /* AddJournalViewModel.swift in Sources */,
+				83A10B862BF791EB009772A6 /* MapViewUseCase.swift in Sources */,
 				83A10B482BF6209B009772A6 /* AddJournalViewUseCase.swift in Sources */,
 				83182F172BECD8B400F81A7C /* RootTabBarController.swift in Sources */,
+				83A10B882BF7926D009772A6 /* DefaultMapViewUseCase.swift in Sources */,
 				83F4A5AE2BEE4E1300CC3C4B /* CellContentType.swift in Sources */,
 				83A10B462BF61769009772A6 /* JournalListViewUseCase.swift in Sources */,
 				83F4A59F2BEE47C200CC3C4B /* CommonField.swift in Sources */,
 				83F4A5A42BEE489200CC3C4B /* BaseTableViewCell.swift in Sources */,
+				83A10B842BF791A9009772A6 /* MapViewModel.swift in Sources */,
 				83182F212BECE92600F81A7C /* AddJournalViewController.swift in Sources */,
 				83A10B822BF7862A009772A6 /* Alertable.swift in Sources */,
 				83182EE32BECCDD700F81A7C /* ViewController.swift in Sources */,
