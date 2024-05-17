@@ -173,7 +173,7 @@ final class AddJournalViewController: UIViewController {
                 rating: 5,
                 journalTitle: title,
                 journalDescription: description,
-                photoUrl: "face.smiling"
+                photoData: nil
             )
         )
     }

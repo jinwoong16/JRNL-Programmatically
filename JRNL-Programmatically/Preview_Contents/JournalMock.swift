@@ -18,19 +18,19 @@ extension Journal {
                 rating: 0,
                 journalTitle: "Bad",
                 journalDescription: "Today is bad day",
-                photoUrl: "cloud"
+                photoData: nil
             ),
             .init(
                 rating: 5,
                 journalTitle: "Good",
                 journalDescription: "Today is good day",
-                photoUrl: "sun.max"
+                photoData: nil
             ),
             .init(
                 rating: 3,
                 journalTitle: "Ok",
                 journalDescription: "Today is Ok day",
-                photoUrl: "cloud.sun"
+                photoData: nil
             )
         ]
     }

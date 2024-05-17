@@ -13,7 +13,7 @@ struct Journal: Identifiable, Codable {
     let rating: Int
     let journalTitle: String
     let journalDescription: String
-    let photoUrl: String?
+    let photoData: Data?
     let latitude: Double?
     let longitude: Double?
     
@@ -23,7 +23,7 @@ struct Journal: Identifiable, Codable {
         rating: Int,
         journalTitle: String,
         journalDescription: String,
-        photoUrl: String?,
+        photoData: Data?,
         latitude: Double? = nil,
         longitude: Double? = nil
     ) {
@@ -32,7 +32,7 @@ struct Journal: Identifiable, Codable {
         self.rating = rating
         self.journalTitle = journalTitle
         self.journalDescription = journalDescription
-        self.photoUrl = photoUrl
+        self.photoData = photoData
         self.latitude = latitude
         self.longitude = longitude
     }

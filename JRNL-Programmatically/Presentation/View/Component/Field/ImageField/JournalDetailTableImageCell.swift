@@ -34,8 +34,12 @@ final class JournalDetailTableImageCell: BaseTableViewCell {
     }
     
     override func setup(with contentType: CellContentType) {
-        if case let .image(imageString) = contentType {
-            journalImageView.image = UIImage(systemName: imageString)
+        if case let .image(data) = contentType {
+            if let photoData = data {
+                journalImageView.image = UIImage(data: photoData)
+            } else {
+                journalImageView.image = UIImage(systemName: "sun.max")
+            }
         } else {
             debugPrint("JournalDetailTableImageCell setup(with:) malfucntioning")
         }

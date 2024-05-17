@@ -65,6 +65,10 @@ final class JournalTableCell: BaseTableViewCell {
     func setup(with journal: Journal) {
         titleLabel.text = journal.journalTitle
         descriptionLabel.text = journal.journalDescription
-        thumbnailView.image = UIImage(systemName: journal.photoUrl ?? "")
+        if let photoData = journal.photoData {
+            thumbnailView.image = UIImage(data: photoData)
+        } else {
+            thumbnailView.image = UIImage(systemName: "sun.max")
+        }
     }
 }

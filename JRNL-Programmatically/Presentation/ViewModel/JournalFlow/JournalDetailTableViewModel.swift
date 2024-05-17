@@ -31,7 +31,7 @@ final class JournalDetailTableViewModel {
             height: 150
         )
         let imageField = CellField<JournalDetailTableImageCell>(
-            cellContentType: .image(journal.photoUrl ?? ""),
+            cellContentType: .image(journal.photoData),
             height: 316
         )
         

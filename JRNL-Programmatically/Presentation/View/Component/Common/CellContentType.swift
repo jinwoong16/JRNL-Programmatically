@@ -10,5 +10,5 @@ import UIKit
 enum CellContentType {
     case label(String, NSTextAlignment)
     case text(String)
-    case image(String)
+    case image(Data?)
 }
