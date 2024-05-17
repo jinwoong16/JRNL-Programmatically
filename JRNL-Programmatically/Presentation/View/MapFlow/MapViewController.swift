@@ -56,7 +56,23 @@ final class MapViewController: UIViewController {
             .dropFirst()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] journals in
-                self?.mapView.addAnnotations(journals)
+                let annotations = journals.compactMap { journal -> MKPointAnnotation? in
+                    guard let latitude = journal.latitude,
+                          let longitude = journal.longitude
+                    else {
+                        return nil
+                    }
+                    let annotation = MKPointAnnotation()
+                    annotation.title = journal.journalTitle
+                    annotation.subtitle = journal.date.formatted(.dateTime.year().month().day())
+                    annotation.coordinate = CLLocationCoordinate2D(
+                        latitude: latitude,
+                        longitude: longitude
+                    )
+                    return annotation
+                }
+                
+                self?.mapView.addAnnotations(annotations)
             }
             .store(in: &disposableBag)
     }

@@ -38,15 +38,7 @@ final class Journal: NSObject, Identifiable, Codable {
         self.longitude = longitude
     }
 }
-
-extension Journal: MKAnnotation {
-    var coordinate: CLLocationCoordinate2D {
-        CLLocationCoordinate2D(latitude: latitude ?? 0, longitude: longitude ?? 0)
     }
-    var title: String? {
-        journalTitle
     }
-    var subtitle: String? {
-        date.formatted(.dateTime.year().month().day())
     }
 }
