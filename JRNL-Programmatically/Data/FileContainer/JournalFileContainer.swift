@@ -16,19 +16,7 @@ actor JournalFileContainer: Container {
         let fileUrl = path.appendingPathComponent("journalData.json", conformingTo: .json)
         let data = try Data(contentsOf: fileUrl)
         
-        if let single = try? JSONDecoder().decode(Journal.self, from: data) {
-            return [single]
-        } else if let array = try? JSONDecoder().decode([Journal].self, from: data) {
-            return array
-        } else {
-            throw DecodingError.typeMismatch(
-                [Journal].self,
-                DecodingError.Context(
-                    codingPath: [],
-                    debugDescription: "Expected to decode Item or [Item]."
-                )
-            )
-        }
+        return try JSONDecoder().decode([Journal].self, from: data)
     }
     
     func write(with element: Journal) throws {
