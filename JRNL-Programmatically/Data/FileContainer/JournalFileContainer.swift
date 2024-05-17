@@ -32,13 +32,16 @@ actor JournalFileContainer: Container {
     }
     
     func write(with element: Journal) throws {
-        var existingData = try read()
-        existingData.append(element)
         let path = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
         try fileManager.createDirectory(at: path, withIntermediateDirectories: true)
+        var elements: [Journal] = []
+        if let existingData = try? read() {
+            elements.append(contentsOf: existingData)
+        }
+        elements.append(element)
         
         let fileUrl = path.appendingPathComponent("journalData.json", conformingTo: .json)
-        let jsonData = try JSONEncoder().encode(existingData)
+        let jsonData = try JSONEncoder().encode(elements)
         try jsonData.write(to: fileUrl)
     }
 }
