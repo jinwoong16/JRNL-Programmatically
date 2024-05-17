@@ -35,6 +35,7 @@
 		83A10B662BF63C34009772A6 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B652BF63C34009772A6 /* Keys.swift */; };
 		83A10B682BF64A63009772A6 /* AddJournalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B672BF64A63009772A6 /* AddJournalViewModel.swift */; };
 		83A10B6A2BF64AC9009772A6 /* DefaultAddJournalViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B692BF64AC9009772A6 /* DefaultAddJournalViewUseCase.swift */; };
+		83A10B822BF7862A009772A6 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B812BF7862A009772A6 /* Alertable.swift */; };
 		83F4A58A2BEE237300CC3C4B /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4A5892BEE237300CC3C4B /* Journal.swift */; };
 		83F4A58D2BEE245F00CC3C4B /* JournalMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4A58C2BEE245F00CC3C4B /* JournalMock.swift */; };
 		83F4A5912BEE263B00CC3C4B /* JournalListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4A5902BEE263B00CC3C4B /* JournalListViewModel.swift */; };
@@ -98,6 +99,7 @@
 		83A10B652BF63C34009772A6 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		83A10B672BF64A63009772A6 /* AddJournalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalViewModel.swift; sourceTree = "<group>"; };
 		83A10B692BF64AC9009772A6 /* DefaultAddJournalViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAddJournalViewUseCase.swift; sourceTree = "<group>"; };
+		83A10B812BF7862A009772A6 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 		83F4A5892BEE237300CC3C4B /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
 		83F4A58C2BEE245F00CC3C4B /* JournalMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalMock.swift; sourceTree = "<group>"; };
 		83F4A5902BEE263B00CC3C4B /* JournalListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalListViewModel.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 		83182F112BECCEEC00F81A7C /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				83A10B802BF78620009772A6 /* Utils */,
 				83F4A5A62BEE48C400CC3C4B /* JournalTable */,
 				83F4A5A52BEE48B700CC3C4B /* Common */,
 				83F4A59D2BEE47B900CC3C4B /* Field */,
@@ -360,6 +363,14 @@
 			children = (
 			);
 			path = EntityWrapper;
+			sourceTree = "<group>";
+		};
+		83A10B802BF78620009772A6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				83A10B812BF7862A009772A6 /* Alertable.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		83F4A5882BEE236B00CC3C4B /* Model */ = {
@@ -592,6 +603,7 @@
 				83F4A59F2BEE47C200CC3C4B /* CommonField.swift in Sources */,
 				83F4A5A42BEE489200CC3C4B /* BaseTableViewCell.swift in Sources */,
 				83182F212BECE92600F81A7C /* AddJournalViewController.swift in Sources */,
+				83A10B822BF7862A009772A6 /* Alertable.swift in Sources */,
 				83182EE32BECCDD700F81A7C /* ViewController.swift in Sources */,
 				83182F132BECCF0900F81A7C /* JournalTableCell.swift in Sources */,
 				83A10B662BF63C34009772A6 /* Keys.swift in Sources */,
