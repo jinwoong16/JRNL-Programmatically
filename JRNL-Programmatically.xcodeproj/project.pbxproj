@@ -160,8 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				83182F1A2BECE3F600F81A7C /* Application */,
-				83182F0E2BECCDF800F81A7C /* View */,
-				83F4A58E2BEE262300CC3C4B /* ViewModel */,
+				83A10B7D2BF6E06D009772A6 /* Presentation */,
 				83A10B7B2BF66ABA009772A6 /* Data */,
 				83A10B542BF62BCE009772A6 /* Domain */,
 				83F4A58B2BEE242100CC3C4B /* Preview_Contents */,
@@ -195,9 +194,9 @@
 		83182F0E2BECCDF800F81A7C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				83182F1D2BECE5D400F81A7C /* Root */,
 				83182F1F2BECE5E600F81A7C /* MapFlow */,
 				83182F1E2BECE5DC00F81A7C /* JournalFlow */,
-				83182F1D2BECE5D400F81A7C /* Root */,
 				83182F112BECCEEC00F81A7C /* Component */,
 			);
 			path = View;
@@ -337,6 +336,15 @@
 				83F4A5892BEE237300CC3C4B /* Journal.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		83A10B7D2BF6E06D009772A6 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				83182F0E2BECCDF800F81A7C /* View */,
+				83F4A58E2BEE262300CC3C4B /* ViewModel */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		83F4A5882BEE236B00CC3C4B /* Model */ = {
