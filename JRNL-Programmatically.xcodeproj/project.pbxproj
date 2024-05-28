@@ -39,6 +39,7 @@
 		83A10B842BF791A9009772A6 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B832BF791A9009772A6 /* MapViewModel.swift */; };
 		83A10B862BF791EB009772A6 /* MapViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B852BF791EB009772A6 /* MapViewUseCase.swift */; };
 		83A10B882BF7926D009772A6 /* DefaultMapViewUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B872BF7926D009772A6 /* DefaultMapViewUseCase.swift */; };
+		83A10B8B2BF7A407009772A6 /* SwiftDataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A10B8A2BF7A407009772A6 /* SwiftDataContainer.swift */; };
 		83F4A58A2BEE237300CC3C4B /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4A5892BEE237300CC3C4B /* Journal.swift */; };
 		83F4A58D2BEE245F00CC3C4B /* JournalMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4A58C2BEE245F00CC3C4B /* JournalMock.swift */; };
 		83F4A5912BEE263B00CC3C4B /* JournalListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4A5902BEE263B00CC3C4B /* JournalListViewModel.swift */; };
@@ -106,6 +107,7 @@
 		83A10B832BF791A9009772A6 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		83A10B852BF791EB009772A6 /* MapViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewUseCase.swift; sourceTree = "<group>"; };
 		83A10B872BF7926D009772A6 /* DefaultMapViewUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMapViewUseCase.swift; sourceTree = "<group>"; };
+		83A10B8A2BF7A407009772A6 /* SwiftDataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataContainer.swift; sourceTree = "<group>"; };
 		83F4A5892BEE237300CC3C4B /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
 		83F4A58C2BEE245F00CC3C4B /* JournalMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalMock.swift; sourceTree = "<group>"; };
 		83F4A5902BEE263B00CC3C4B /* JournalListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalListViewModel.swift; sourceTree = "<group>"; };
@@ -257,10 +259,19 @@
 			path = MapFlow;
 			sourceTree = "<group>";
 		};
+		833AA0CD2BF911F300F7A548 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				83A10B4D2BF6282D009772A6 /* FileContainer */,
+				83A10B892BF7A3F4009772A6 /* SwiftDataContainer */,
+				83A10B512BF62869009772A6 /* Container */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
 		83A10B442BF61740009772A6 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				83A10B512BF62869009772A6 /* Container */,
 				83A10B502BF62860009772A6 /* UseCase */,
 			);
 			path = Protocols;
@@ -295,6 +306,7 @@
 		83A10B542BF62BCE009772A6 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				83A10B7C2BF66B48009772A6 /* Entities */,
 				83A10B442BF61740009772A6 /* Protocols */,
 				83A10B552BF62BEE009772A6 /* DefaultJournalListViewUseCase.swift */,
 				83A10B692BF64AC9009772A6 /* DefaultAddJournalViewUseCase.swift */,
@@ -334,8 +346,7 @@
 		83A10B7B2BF66ABA009772A6 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				83F4A5882BEE236B00CC3C4B /* Model */,
-				83A10B4D2BF6282D009772A6 /* FileContainer */,
+				833AA0CD2BF911F300F7A548 /* DataSource */,
 				83A10B572BF62C69009772A6 /* Repository */,
 			);
 			path = Data;
@@ -374,12 +385,12 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		83F4A5882BEE236B00CC3C4B /* Model */ = {
+		83A10B892BF7A3F4009772A6 /* SwiftDataContainer */ = {
 			isa = PBXGroup;
 			children = (
-				83A10B7C2BF66B48009772A6 /* Entities */,
+				83A10B8A2BF7A407009772A6 /* SwiftDataContainer.swift */,
 			);
-			path = Model;
+			path = SwiftDataContainer;
 			sourceTree = "<group>";
 		};
 		83F4A58B2BEE242100CC3C4B /* Preview_Contents */ = {
@@ -607,6 +618,7 @@
 				83F4A5A42BEE489200CC3C4B /* BaseTableViewCell.swift in Sources */,
 				83A10B842BF791A9009772A6 /* MapViewModel.swift in Sources */,
 				83182F212BECE92600F81A7C /* AddJournalViewController.swift in Sources */,
+				83A10B8B2BF7A407009772A6 /* SwiftDataContainer.swift in Sources */,
 				83A10B822BF7862A009772A6 /* Alertable.swift in Sources */,
 				83182EE32BECCDD700F81A7C /* ViewController.swift in Sources */,
 				83182F132BECCF0900F81A7C /* JournalTableCell.swift in Sources */,

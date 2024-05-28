@@ -12,6 +12,11 @@ struct JournalFileContainerKey: InjectionKey {
     typealias Value = JournalFileContainer
 }
 
+// MARK: - SwiftData Container
+struct SwiftDataContainerKey: InjectionKey {
+    typealias Value = SwiftDataContainer
+}
+
 // MARK: - Service
 struct JournalRepositoryKey: InjectionKey {
     typealias Value = JournalRepository
