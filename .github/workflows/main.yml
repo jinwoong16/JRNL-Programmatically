@@ -1,24 +1,18 @@
-            - name: Discord Notify
-  # You may pin to the exact commit or the version.
-  # uses: stegzilla/discord-notify@e9ae7f7d5d45da6be819165c3ccf78357e12bdf6
-  uses: stegzilla/discord-notify@v4
-  with:
-    # Webhook URL from Discord
-    webhook_url: # default is 
-    # Title for card
-    title: # optional, default is 
-    # Content of card
-    message: # default is 
-    # If action is used in a pull request, attach the preview image for it to the card. Required for custom_image_url
-    include_image: # optional, default is false
-    # Avatar to use for user
-    avatar_url: # optional, default is 
-    # Username to send message as
-    username: # optional, default is GitHub
-    # Colour for the edge of the card in hex
-    colour: # optional, default is #3371FF
-    # Include custom image on card, include_image must be true
-    custom_image_url: # optional, default is 
-    # Make the title of the card a link
-    title_url: # optional, default is 
-          
+name: 'New PR Notification'
+on:
+  pull_request: 
+    types: [opened, reopened]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Discord notification
+        uses: stegzilla/discord-notify@v2
+        with:
+          webhook_url: https://discord.com/api/webhooks/1257314322972016640/bgti5pf74JNmdjkOYeLg8FF7-OUnMiI5al3odtpaBf9VoEpp04JI7OTyJ00PDM4b-S7Z
+          title: New PR opened
+          message: "**${{ github.event.pull_request.title }}**\n**Creator:** ${{ github.event.pull_request.user.login }}\n${{ github.event.pull_request.html_url }}"
+          include_image: true
+          avatar_url: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
+          username: GitHub PR Notifier
